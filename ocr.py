@@ -13,6 +13,7 @@ detail = "high"
 api_key = os.environ['OPENAI_API_KEY']
 
 st.title('Diagram Extractor')
+st.subheader('User Public Data Only')
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
