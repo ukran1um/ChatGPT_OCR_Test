@@ -2,7 +2,6 @@ import requests
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from huggingface_hub import snapshot_download
-from docarray import DocumentArray, Document
 import numpy as np
 import os
 import hnswlib
