@@ -1,4 +1,23 @@
 from PIL import Image
+import numpy as np
+import hnswlib
+import pandas as pd
+
+# Load index and data
+unspsc_codes_df = pd.read_csv('./data/data-unspsc-codes.csv', encoding='ISO-8859-1')
+p = hnswlib.Index(space='l2', dim=384)  # the space can be changed - keeps the data, alters the distance function.
+p.load_index("./data/index.bin", max_elements = len(unspsc_codes_df))
+
+def get_index_results(string_vector, k=5):
+    labels, distances = p.knn_query(string_vector, k=5)
+    return unspsc_codes_df.iloc[labels[0]].head(k).to_string(index=False)
+     
+def get_reply(messages):
+    response = openai.ChatCompletion.create(
+        model=MODEL,
+        messages=messages
+    )
+    return response.choices[0].message['content']
 
 def calculate_image_token_cost(img, detail="high"):
     # Fixed cost for low detail images

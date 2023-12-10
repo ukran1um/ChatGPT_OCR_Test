@@ -1,3 +1,11 @@
+#tutorial for streamlit hosting
+https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
+
+#ec2 connect
 ssh -i "~/.ssh/root_rsa.pem" ubuntu@ec2-54-234-194-56.compute-1.amazonaws.com
 
-
+#ideas for usnpsc (from easiest to hardest)
+1. make it guess a part name in second message and string search within commodity name of pdf, then make it pick one
+2. embed and fuzzy search names
+3. iteratice hieararchical guessing (lazy quick version would send the whole image every time tough it might get expensive)
+4. assistant API analysis (may be not stable and seems less expensive)
